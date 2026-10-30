@@ -58,7 +58,7 @@ TODO:   Modify the SQL query below to show:
 
 # Type your SQL query below
 sql_task_2 = """
-SELECT origin, COUNT(*) AS flight_count, ROUND(AVG(fare), 2) AS avg_fare
+SELECT origin, COUNT(*)  AS flight_count, ROUND(AVG(fare), 2) AS avg_fare
 FROM Flight
 GROUP BY origin
 ORDER BY flight_count DESC;
