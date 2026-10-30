@@ -42,7 +42,6 @@ SELECT COUNT(*) FROM Flight;
 
 # Execute SQL query and fetch the result
 cursor.execute(sql_task_1)
-
 # Replace this with the code to execute the query and fetch the result
 result_task_1 = cursor.fetchone()[0]
 
@@ -59,7 +58,8 @@ TODO:   Modify the SQL query below to show:
 
 # Type your SQL query below
 sql_task_2 = """
-SELECT origin, COUNT(*)  AS flight_count, ROUND(AVG(fare), 2) AS avg_fare
+
+SELECT origin, COUNT(*) AS flight_count, ROUND(AVG(fare), 2) AS avg_fare
 FROM Flight
 GROUP BY origin
 ORDER BY flight_count DESC;
@@ -114,5 +114,4 @@ for flno, dest, mname, model, fare in result_task_3:
 # ==============================================================================
 # STEP 4: Close Database Connection
 # ==============================================================================
-
 conn.close()
