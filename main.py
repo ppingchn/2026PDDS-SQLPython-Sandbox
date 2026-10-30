@@ -58,6 +58,7 @@ TODO:   Modify the SQL query below to show:
 
 # Type your SQL query below
 sql_task_2 = """
+
 SELECT origin, COUNT(*) AS flight_count, ROUND(AVG(fare), 2) AS avg_fare
 FROM Flight
 GROUP BY origin
@@ -70,7 +71,7 @@ cursor.execute(sql_task_2)
 result_task_2 = cursor.fetchall()
 
 print("Task 2: Flight Summary by Origin City")
-print(f"{'Origin':<15} | {'Flights':<10} | {'Avg Fare ($)':<12}")
+print(f"{'Origin':<15} | {'Flight Count':<10} | {'Avg Fare ($)':<12}")
 # Print all the results
 for origin, count, avg_fare in result_task_2:
     print(f"{origin:<15} | {count:<10} | {avg_fare:<12.2f}")
