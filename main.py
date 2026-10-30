@@ -2,10 +2,10 @@
 PDDS Workshop: Python & SQLite3 On-Hand Workshop
 Database: AirlineDB_2026.DB
 """
-
 # Importing the required libraries
 import os
 import sqlite3
+
 
 # ==============================================================================
 # STEP 1: Locate Database File
@@ -59,10 +59,10 @@ TODO:   Modify the SQL query below to show:
 
 # Type your SQL query below
 sql_task_2 = """
-SELECT origin, ___(*)  AS flight_count, ROUND(___(fare), ___) AS avg_fare
-FROM ___
-GROUP BY ___
-ORDER BY flight_count ___;
+SELECT origin, count(*)  AS flight_count, ROUND(AVG(fare),2) AS avg_fare
+FROM Flight
+GROUP BY origin
+ORDER BY flight_count DESC;
 """
 # Execute SQL query and fetch the result
 cursor.execute(sql_task_2)
@@ -87,11 +87,11 @@ TODO:   Find which aircraft model is used for each flight from Madison.
 
 # Type your SQL query below
 sql_task_3 = """
-SELECT f.___, f.destination, a.___, a.model, f.fare
-FROM ___ AS f
-___ Aircraft AS a ON f.___ = a.aid
-WHERE f.origin = '___'
-ORDER BY f.fare ___;
+SELECT f.flno, f.destination, a.mname, a.model, f.fare
+FROM Flight AS f
+Join Aircraft AS a ON f.aid = a.aid
+WHERE f.origin = 'Madison'
+ORDER BY f.fare ASC;
 """
 
 # Execute SQL query and fetch the result
